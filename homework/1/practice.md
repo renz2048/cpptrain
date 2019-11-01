@@ -85,3 +85,40 @@ Sum of 50 to 100 inclusive is 3825
 10 9 8 7 6 5 4 3 2 1 0
 ```
 
+## 1.11
+
+参见p1-11.cpp
+
+## 1.12
+
+从-100到100之间的整数相加，计算和；
+
+sum最终为0
+
+## 1.13
+
+```
+for (int val = 50; val <= 100; val++) {
+    sum += val;
+}
+```
+
+```
+for (int val = 10; val >= 0; val--) {
+    sum += val;
+}
+```
+
+```
+for (int val = small; val < big; val++) {
+std::cout << val << " ";
+}
+std::cout << std::endl;
+```
+
+## 1.14
+
+for使用更加简化
+
+while更加易于理解
+

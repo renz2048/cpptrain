@@ -23,3 +23,37 @@ Sum of 1 to 10 inclusive is 55
 ```
 
 ### 1.4.2 for
+
+参见1-4-for.cpp
+
+```
+~ g++ -o 1-4-for 1-4-for.cpp 
+~ ./1-4-for  
+Sum of 1 to 10 inclusive is 55
+```
+
+### 1.4.3
+
+参见1-4-3.cpp
+
+```
+~ g++ -o 1-4-3 1-4-3.cpp    
+~ ./1-4-3  
+4 5 6 45
+Sum is 60
+```
+
+### 1.4.4
+
+参见1-4-4.cpp
+
+```
+~ g++ -o 1-4-4 1-4-4.cpp
+~ ./1-4-4               
+23 23 23 23 45 56 56 56 56 34 34
+23 occurs 4 times 
+45 occurs 1 times 
+56 occurs 4 times 
+34 occurs 2 times
+```
+
