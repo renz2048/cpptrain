@@ -57,3 +57,45 @@ Sum is 60
 34 occurs 2 times
 ```
 
+## 1.5
+
+参见1-5-add-oob.cpp
+
+```
+~ g++ -o 1-5-add-oob 1-5-add-oob.cpp
+In file included from 1-5-add-oob.cpp:2:
+./Sales_item.h:56:20: warning: defaulted function definitions are a C++11 extension [-Wc++11-extensions]
+    Sales_item() = default;
+                   ^
+./Sales_item.h:70:25: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    unsigned units_sold = 0; // explicitly initialized
+                        ^
+./Sales_item.h:71:20: warning: in-class initialization of non-static data member is a C++11 extension [-Wc++11-extensions]
+    double revenue = 0.0;
+                   ^
+3 warnings generated.
+~ ./1-5-add-oob
+0-210-70353-x 4 24.99
+0-210-70353-x 4 99.96 24.99
+```
+
+参见1-5-oob.cpp
+
+```
+~ g++ -o 1-5-oob 1-5-oob.cpp
+In file included from 1-5-oob.cpp:2:
+./Sales_item.h:56:20: warning: defaulted function definitions are a C++11 extension [-Wc++11-extensions]
+    Sales_item() = default;
+                   ^
+./Sales_item.h:70:25: warning: in-class initialization of non-static data member is a C++11 extension
+      [-Wc++11-extensions]
+    unsigned units_sold = 0; // explicitly initialized
+                        ^
+./Sales_item.h:71:20: warning: in-class initialization of non-static data member is a C++11 extension
+      [-Wc++11-extensions]
+    double revenue = 0.0;
+                   ^
+3 warnings generated.
+~ ./1-5-oob <BookSalesRecord >SalesStatistics
+```
+
