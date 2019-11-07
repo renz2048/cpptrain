@@ -228,3 +228,153 @@ long *lp = &i;
 
 void指针可以存放任意对象的地址，lp为long型指针不匹配int型指针
 
+## 2.25
+
+### a
+
+```
+int* ip, i, &r = i;
+```
+
+- ip是一个int型指针
+- i是一个int型变量
+- r是一个int型变量的引用
+
+### b
+
+```
+int i, *ip = 0;
+```
+
+- i是一个int型变量
+- ip是一个int型空指针
+
+### c
+
+```
+int* ip, ip2;
+```
+
+- ip是一个int型指针
+- ip2是一个int型变量
+
+## 2.26
+
+```
+const int buf; //为对const对象初始化
+int cnt = 0;
+const int sz = cnt;
+++cnt; ++sz; //sz是const对象，初始化后不能再改变其值
+```
+
+## 2.27
+
+### a
+
+```
+int i = -1, &r = 0;
+```
+
+合法，r是一个常量引用
+
+### b
+
+```
+int *const p2 = &i1;
+```
+
+合法，p2是一个常量指针，指向int型变量
+
+### c
+
+```
+const int i = -1, &r = 0;
+```
+
+合法，r是一个const int型常量的引用
+
+### d
+
+```
+const int *const p3 = &i2;
+```
+
+p3是一个常量指针，指向一个const int型对象，i2若不是const int型对象，则不合法
+
+### e
+
+```
+const int *p1 = &i2;
+```
+
+p1指向一个const int型对象，i2若不是const int型对象，则不合法
+
+### f
+
+```
+const int &const r2;
+```
+
+不合法，第二个const多余
+
+### g
+
+```
+const int i2 = i, &r = i;
+```
+
+若i不是const int型对象，不合法
+
+## 2.28
+
+- `int i, *const cp;`
+  - i是int型对象
+  - cp是常量指针，指向int型对象
+- `int *p1, *const p2;`
+  - p1是指向int型对象的指针
+  - p2是指向int型对象的常量指针
+- `const int ic, &r = ic;`
+  - ic是const int型对象
+  - r是const int型对象的引用
+- `const int *const p3;`
+  - p3是指向const int型对象的常量指针
+- `const int *p;`
+  - p是指向const int型对象的指针
+
+## 2.29
+
+- `i = ic;`
+  - 非法，ic是const int型对象，不能赋值给int型对象
+- `p1 = p3;`
+  - 不合法，p3是一个指向const int型对象的常量指针
+- `p1 = &ic;`
+  - 不合法，p1只能指向int型对象
+- `p3 = &ic;`
+  - 合法
+- `p2 = p1;`
+  - 合法
+- `ic = *p3;`
+  - 合法
+
+## 2.30
+
+```
+const int v2 = 0; int v1 = v2;
+//不能改变v2的值，这是一个顶层const
+int *p1 = &v1, &r1 = v1;
+const int *p2 = &v2, *const p3 = &i, &r2 = v2;
+//允许改p2的值，第一个是底层const；不能改变p3的值，第二个是顶层const
+```
+
+## 2.31
+
+```
+r1 = v2;
+//普通的int &不能绑定到int常量上
+p1 = p2; p2 = p1;
+//p2包含底层const
+p1 = p3;
+//p3包含底层const
+p2 = p3;
+```
+
