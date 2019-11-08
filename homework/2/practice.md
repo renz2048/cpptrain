@@ -378,3 +378,103 @@ p1 = p3;
 p2 = p3;
 ```
 
+## 2.32
+
+`int null = 0, *p = null;`
+
+不合法，null是一个int对象，p是一个int *指针，可改为`int null = 0, *p = nullptr;`
+
+## 2.33
+
+- `a = 42;`
+- `b = 42;`
+- `c = 42;`
+- `d = 42;`
+  - d是一个整型指针，我觉得不能赋字面值
+- `e = 42;`
+  - e是一个指向整型常量的指针，不能赋字面值
+- `g = 42;`
+  - g是一个整型常量引用，不能重新赋值
+
+## 2.34
+
+参见p2-34.cpp
+
+- d = 24;
+  - 不能将`int`类型的值分配到`int *`类型
+  - assigning to 'int *' from incompatible type 'int'
+- e = 24;
+  - 不能将`int`类型的值分配到`const int *`类型
+  - Assigning to 'int *' from incompatible type 'int'
+- g = 24;
+  - 表达式必须是可修改的左值
+  - cannot assign to variable 'g' with const-qualified type 'const int &'
+
+## 2.35
+
+```
+const int i = 42;
+auto j = i; const auto &k = i; auto *p = &i;
+const auto j2 = i, &k2 = i;
+```
+
+- j是整型变量
+- k是一个常量引用，绑定到i
+- p是一个指向整型常量的指针
+- j2是一个整箱常量
+- k2是一个常量引用，绑定到k
+
+## 2.36
+
+```
+int a = 3, b = 4;
+decltype(a) c = a;
+decltype((b)) d = a;
+++c;
+++d;
+```
+
+a是整型变量，b是整型变量，c是整型变量，d是整型引用，绑定到a
+
+a = 3, b = 4, c = 4, d = 3,
+
+## 2.37
+
+```
+int a = 3, b = 4;
+decltype(a) c = a;
+decltype(a = b) d = a;
+```
+
+c是整型变量，d是整型引用，绑定到a
+
+c = 3, d = 3
+
+## 2.38
+
+decltype的结果类型与表达式密切相关。如果decltype使用的表达式是一个变量，则decltype返回该变量的类型，包括顶层const和引用
+
+相同：
+
+```
+int a = 0;
+decltype(a) b = a;
+```
+
+```
+int a = 0;
+auto b = a;
+```
+
+不同：
+
+```
+const int a = 0;
+decltype(a) b = 0;
+```
+
+```
+const int a = 0;
+auto b = a;
+```
+
