@@ -478,3 +478,7 @@ const int a = 0;
 auto b = a;
 ```
 
+## 2.39
+
+`error: expected ';' after struct`
+
