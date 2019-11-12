@@ -114,3 +114,60 @@ vector<int> vec{42,42,42,42,42,42,42,42,42,42};
 ## 3.20
 
 参见p3-20-1.cpp和p3-20-2.cpp
+
+## 3.26
+
+`mid = (beg + end) / 2`中beg和end均为迭代器，迭代器相加的运算未定义
+
+## 3.27
+
+`txt_size()`是一个无参数的函数，返回值是int
+
+```
+unsigned buf_size = 1024
+a) int ia[buf_size];
+b) int ia[4 * 7 - 14];
+c) int ia[txt_size()];
+d) char st[11] = "fundamental";
+```
+
+c不合法，txtz_size必须是constexpr
+
+d不合法，字符串数组未预留结束符的空间
+
+## 3.28
+
+```
+string sa[10];
+int ia[10];
+int main() {
+    string sa2[10];
+    int ia2[10];
+}
+```
+
+sa是一个10个空字符的字符数组
+
+ia是一个10个0的整型数组
+
+sa2和ia2未定义
+
+## 3.29
+
+- 数组大小不能改变
+- 数组元素无名字，必须通过位置访问
+
+## 3.30
+
+```
+constexpr size_t array_size = 10;
+int ia[array_size];
+for (size_t ix = 1; ix <= array_size; ++ix)
+    ia[ix] = ix
+```
+
+ix可能为10，导致数组访问越界
+
+## 3.33
+
+将导致下标访问出错。
