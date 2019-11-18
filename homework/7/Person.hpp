@@ -8,7 +8,14 @@ using std::string;
 using std::istream;
 using std::ostream;
 
-struct Person {
+class Person {
+/**
+ * 友元
+ */
+friend istream &read(istream &, Person &);
+friend ostream &print(ostream &, const Person &);
+
+public:
     /**
      * 成员函数
      */
@@ -17,6 +24,7 @@ struct Person {
     //获取地址
     string getAddress() const { return address; }
 
+private:
     /**
      * 数据成员
      */

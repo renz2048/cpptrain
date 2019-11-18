@@ -7,12 +7,38 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-struct Sales_data {
-    //成员函数
+class Sales_data {
+public:
+/**
+ * 非成员函数友元声明
+ */
+friend Sales_data add(const Sales_data&, const Sales_data&);
+friend std::istream &read(std::istream&, Sales_data&);
+friend std::ostream &print(std::ostream&, const Sales_data&);
+
+    /**
+     * 构造函数
+     */
+    Sales_data() = default;
+    Sales_data(const string &s) : bookNo(s) {}
+    Sales_data(const string &s, unsigned n, double p) :
+               bookNo(s), units_sold(n), revenus(n*p) {}
+    Sales_data(istream &is);
+
+    /**
+     * 成员函数
+     * 所有成员，声明必须在类的内部；
+     * 定义可以在类内，如isbn，是隐式的inline函数；
+     * 定义也可以在类外，如combine；
+     * 
+     * 成员函数通过一个额外的隐式参数this访问调用它的对象
+     */
     std::string isbn() const { return bookNo; }
     Sales_data& combine(const Sales_data&);
+private:
     //返回售出书籍的平均价格
     double avg_price() const;
+
     //数据成员
     std::string bookNo;      //本书编号
     unsigned units_sold = 0; //本书销量
@@ -20,7 +46,8 @@ struct Sales_data {
 };
 
 /**
- * 非成员接口函数，定义和声明都必须在类的外部
+ * 非成员接口函数，作为接口和组成部分
+ * 定义和声明都必须在类的外部
  * add、read、print
  */
 Sales_data add(const Sales_data&, const Sales_data&);
@@ -61,4 +88,9 @@ Sales_data add(const Sales_data &lhs, const Sales_data &rhs)
     Sales_data sum = lhs;
     sum.combine(rhs);
     return sum;
+}
+
+Sales_data::Sales_data(istream &is)
+{
+    read(is, *this);
 }
