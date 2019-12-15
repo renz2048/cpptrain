@@ -43,5 +43,30 @@ void elimDups(vector<string> &words)
     auto end_unique = unique(words.begin(), words.end());
     //erase，删除
     words.erase(end_unique, words.end());
-    print_container(words);
+}
+
+bool isShorter(const string &s1, const string &s2)
+{
+    return s1.size() < s2.size();
+}
+
+void bigges(vector<string> &words,
+             vector<string>::size_type sz)
+{
+    elimDups(words);
+    stable_sort(words.begin(), words.end(),
+                 [] (const string &s1, const string &s2)
+                 { return s1.size() < s2.size(); });
+    //获取一个迭代器，指向第一个满足size()>=sz的元素
+    auto big_iter = find_if(words.begin(), words.end(),
+             [sz] (const string &s)
+             { return s.size() >= sz; });
+    //计算满足size >= sz的元素的数目
+    auto count = words.end() - big_iter;
+    cout << count << " length" << endl;
+    //打印长度大于等于给定值的单词，每个单词后面接一个空格
+    for_each(big_iter, words.end(),
+              [](const string &s)
+              { cout << s << " ";});
+    cout << endl;
 }
