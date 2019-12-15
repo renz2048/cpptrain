@@ -15,13 +15,13 @@ x，y是函数swap的形参（formal parameter），当函数运行结束，形�
 
 #### 3. 编写一个模板函数 fill，给数组 a[start:end-1] 赋值 value。测试你的代码。
 
-#### 4. 编写一个模板函数 inner_product，返回值是 $\sum_{i=0}^{n-1}a[i]*b[i]$。测试你的代码。
+#### 4. 编写一个模板函数 inner_product，返回值是 ![](http://latex.codecogs.com/gif.latex?\sum_{i=0}^{n-1}a[i]*b[i])。测试你的代码。
 
-#### 5. 编写一个模板函数 iota，使 a[i]=value+i， $0\leq i <n$。测试你的代码。
+#### 5. 编写一个模板函数 iota，使 a[i]=value+i， ![](http://latex.codecogs.com/gif.latex?0\leq i <n)。测试你的代码。
 
 #### 6. 编写一个模板函数 is_sorted，当且仅当 a[0:n-1] 有序时，返回值是 true。测试你的代码。
 
-#### 7. 编写一个模板函数 mismatch，返回值是使不等式 $a[i] \neq b[i]$ 成立的最小索引 i，$0 \leq i < n$。测试你的代码。
+#### 7. 编写一个模板函数 mismatch，返回值是使不等式 ![](http://latex.codecogs.com/gif.latex?a[i] \neq b[i]) 成立的最小索引 i，![](http://latex.codecogs.com/gif.latex?0 \leq i < n)。测试你的代码。
 
 #### 8. 下面的函数头是具有不同签名的函数吗？为什么？
 
