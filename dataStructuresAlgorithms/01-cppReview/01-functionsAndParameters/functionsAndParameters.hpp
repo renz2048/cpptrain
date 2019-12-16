@@ -78,3 +78,17 @@ bool is_sorted(const vector<T> &vt)
         return false;
     }
 }
+
+template<typename T>
+int mismatch(const T t1, const T t2)
+{
+    int n = t1.size() <= t2.size()?t1.size():t2.size();
+    for (size_t i = 0; i < n; i++)
+    {
+        if (t1[i] != t2[i])
+        {
+            return i;
+        }
+    }
+    return n;
+}

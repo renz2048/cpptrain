@@ -87,7 +87,49 @@ void iota(vector<T> &vt,const T &t)
 
 #### 6. 编写一个模板函数 is_sorted，当且仅当 a[0:n-1] 有序时，返回值是 true。测试你的代码。
 
+```c++
+template<typename T>
+bool is_sorted(const vector<T> &vt)
+{
+    int sort = 1;
+    bool flag;
+    auto beg = vt.begin();
+    auto next = beg - 1;
+    *beg <= *next?flag = true:flag = false;
+
+    for (; next != vt.end(); ++beg, ++next)
+    {
+        if (*beg <= *next && !flag)
+            return false;
+    }
+    if (vt.end() == next)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+```
+
 #### 7. 编写一个模板函数 mismatch，返回值是使不等式 ![](http://latex.codecogs.com/gif.latex?a[i\]%20\neq%20b[i])成立的最小索引 i，![](http://latex.codecogs.com/gif.latex?0%20\leq%20i%20%3C%20n)。测试你的代码。
+
+```c++
+template<typename T>
+int mismatch(const T t1, const T t2)
+{
+    int n = t1.size() <= t2.size()?t1.size():t2.size();
+    for (size_t i = 0; i < n; i++)
+    {
+        if (t1[i] != t2[i])
+        {
+            return i;
+        }
+    }
+    return n;
+}
+```
 
 #### 8. 下面的函数头是具有不同签名的函数吗？为什么？
 
