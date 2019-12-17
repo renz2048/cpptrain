@@ -140,7 +140,21 @@ int mismatch(const T t1, const T t2)
 
 #### 9. 假设有一个程序包含了程序 1-1 和程序 1-2 的 abc 函数。下面的语句分别调用了哪一个 abc 函数？哪一条语句会出现编译错误？为什么？
 
-- [ ] `cout << abc(1, 2, 3)<< endln;`
-- [ ] `cout<<abc(1.0F, 2.0F, 3.0F)<<endln;`
-- [ ] `cout<<abc(1, 2, 3.0F)<<endln;`
-- [ ] `cout<<abc(1.0, 2.0, 3.0)<<endln;`
+```c++
+int abc(int a, int b, intc)
+{
+    return a + b *c;
+}
+```
+
+```c++
+float abc(float a, float b, float c)
+{
+    return a + b *c;
+}
+```
+
+- [ ] `cout << abc(1, 2, 3)<< endln;` 第一个
+- [ ] `cout<<abc(1.0F, 2.0F, 3.0F)<<endln;` 第二个
+- [ ] `cout<<abc(1, 2, 3.0F)<<endln;` 找不到函数
+- [ ] `cout<<abc(1.0, 2.0, 3.0)<<endln;` 第二个
